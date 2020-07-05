@@ -1,7 +1,8 @@
 {
   "scripts": {
     "dev": "webpack-dev-server --open --config webpack.dev.ts",
-    "build": "webpack --mode production --config webpack.prod.ts"
+    "build": "webpack --mode production --config webpack.prod.ts",
+    "test": "jest --coverage"
   },
   "dependencies": {
     "react": "^16.13.1",
