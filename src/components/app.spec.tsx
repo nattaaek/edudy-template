@@ -1,12 +1,11 @@
 import * as React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect'
 
 import IApp from './app';
 
-test('loads items eventually', async () => {
-    const a = render(<IApp />)
+test('loads app correctly', async () => {
+    render(<IApp />)
   
-    // Wait for page to update with query text
-    const items = await a.findByText("Hello React Typescript!");
-    expect(items.innerHTML).toStrictEqual("Hello React Typescript!");
+    expect(screen.getByText('Hello React Typescript!')).toHaveTextContent('Hello React Typescript!');
   })
