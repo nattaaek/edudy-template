@@ -1,30 +1,33 @@
 pipeline {
-    agent any
-
-    stage('Checkout') {
-        steps {
-            nodejs('nodejs'){
-                checkout scm
+    agent {
+        any
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                nodejs('nodejs'){
+                    checkout scm
+                }
             }
         }
-    }
-    stage('Build') {
-        steps {
-            nodejs('nodejs') {
-                sh 'cd edudy-template && yarn'
+        stage('Build') {
+            steps {
+                nodejs('nodejs') {
+                    sh 'cd edudy-template && yarn'
+                }
             }
         }
-    }
-    stage('Test') {
-        steps {
-            nodejs('nodejs') {
-                sh 'cd edudy-template && yarn test'
+        stage('Test') {
+            steps {
+                nodejs('nodejs') {
+                    sh 'cd edudy-template && yarn test'
+                }
             }
         }
-    }
-    stage('Deploy') {
-        steps {
-            echo 'Deploying'
+        stage('Deploy') {
+            steps {
+                echo 'Deploying'
+            }
         }
     }
 }
