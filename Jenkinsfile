@@ -1,6 +1,13 @@
 pipeline {
     agent any
 
+    stage('Checkout') {
+        steps {
+            nodejs('nodejs'){
+                checkout scm
+            }
+        }
+    }
     stage('Build') {
         steps {
             nodejs('nodejs') {
