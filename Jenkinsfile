@@ -12,14 +12,14 @@ pipeline {
         stage('Build') {
             steps {
                 nodejs('nodejs') {
-                    sh 'cd edudy-template && yarn'
+                    sh 'yarn'
                 }
             }
         }
         stage('Test') {
             steps {
                 nodejs('nodejs') {
-                    sh 'cd edudy-template && yarn test'
+                    sh 'yarn test'
                 }
             }
         }
